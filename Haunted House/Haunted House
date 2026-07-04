@@ -9,7 +9,7 @@
 80 if li>19 then gosub 10000:rem lightning
 90 if wx>255 then rs=255:poke v+16,3
 100 poke v+0,wx-rs:rem witch
-110 gosub 10040;rem bat
+110 gosub 10040:rem bat
 120 next wx:poke v+21,240
 130 gosub 11000:rem burn
 140 gosub 12000:rem skull
@@ -24,7 +24,7 @@
 1070 next y:return
 2000 rem ***   castle-main body   ***
 2010 y1=10:y2=16:x1=14:x2=25:c=2:gosub 13000
-2020 for i=0to69: x=rnd(0)*56+80,2
+2020 for i=0to69: x=rnd(0)*56+80
 2030 sys mc,x,x,rnd(0)*56+80,2
 2040 next i
 3000 rem *** turrets left & right ***
@@ -41,7 +41,7 @@
 4040 sys mc,56-i,55+i,8+i*4+j,2:nextj,i
 4050 for i=1 to 5:for j=23 to 28
 4060 poke sc+i*40+j,11:next j,i
-4070 or i=1 to 9:for j=0 to 3
+4070 for i=1 to 9:for j=0 to 3
 4080 sys mc,104-i,103+i,8+i*4+j,2:next j,i
 5000 rem ***     main roof     ***
 5010 for i=8 to 9:for j=16 to 23
@@ -67,10 +67,6 @@
 8060 mo=tr(i,j):ifmo<>2 then 8080
 8070 sys mc,x,x,y,mo
 8080 next j,i,tr
-8050 for j=0 to 15:x=tx+j
-8060 mo=tr(i,j):ifmo<>2 then 8080
-8070 sys mc,x,x,y,mo
-8080 next j,i,tr
 8090 return
 9000 rem ***     night time     ***
 9010 poke 53281,0
@@ -79,11 +75,6 @@
 9040 next j,i
 9050 for i=0 to 16:y=5+i
 9060 for j=0 to 7:x=5+j
-9070 mo=mo(i,j):if mo>3 then 9090
-9080 sys mc,x,x,y,mo
-9090 next j,i
-9100 return
-10000 rem ***    lightning    ***
 9070 mo=mo(i,j):if mo>3 then 9090
 9080 sys mc,x,x,y,mo
 9090 next j,i
@@ -101,7 +92,6 @@
 10100 x=peek(v+2)+dx:y=peek(v+3)+dy
 10110 pokev+2,x:pokev+3,y
 10120 return
-list 11000-11150
 11000 rem ***      burn      ***
 11010 p(0)=116:p(1)=107:p(2)=228:p(3)=107
 11020 p(4)=138:p(5)=147:p(6)=206:p(7)=147
@@ -130,8 +120,9 @@ list 11000-11150
 12070 sys mc,x,x+2,y+1,mo
 12080 next j,i
 12090 return
+13000 rem rem ***   draw box   ***
 13010 for i=y1 to y2:for j=x1 to x2
-13020 for poke sc+1*40+j,134:poke co+i*40+j,c
+13020 for poke sc+i*40+j,134:poke co+i*40+j,c
 13030 next j,i
 13040 for y=y1*8 to y2*8+7
 13050 sys mc,x1*4,x2*4+3,y,3
@@ -158,7 +149,7 @@ list 11000-11150
 14140 pokev+00,10:pokev+01,60:witch
 14150 pokev+02,50:pokev+03,80:bat
 14160 fori=0to7:poke2040+i,32,1:next:rem colours
-14170 fori=4to7:poke2040+1,32:next:rem ponters
+14170 fori=4to7:poke2040+i,32:next:rem pointers
 14180 poke2040,34:poke2041,35:pokev+16,2
 14190 pokev+37,10:pokev+38,8:pokev+28,240:rem mc mode
 14200 fori=0to319:read d:poke2048+i,d:next
@@ -201,6 +192,9 @@ list 11000-11150
 20340 data2,2,2,4,4,2,4,4
 20350 data2,2,2,4,4,4,4,4
 20360 data4,2,2,4,2,4,4,4
+20370 data4,4,2,2,2,2,4,2
+20380 data4,4,2,2,2,2,2,4
+20390 data4,4,4,2,2,2,4,4
 20400 rem data for skull
 20410 data 4,4,4,0,0,0,0,4,4,4
 20420 data 4,0,0,0,0,0,0,0,0,4
@@ -245,6 +239,3 @@ list 11000-11150
 20860 data 0,0,129,219,129,119,60,238,28,24,53,0,36,0
 20870 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 20880 data 0,0,0,0,0,0,000
-30370 data4,4,2,2,2,2,4,2
-30380 data4,4,2,2,2,2,2,4
-30390 data4,4,4,2,2,2,4,4
