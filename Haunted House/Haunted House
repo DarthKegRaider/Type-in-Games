@@ -12,7 +12,9 @@
 110 gosub 10040:rem bat
 120 next wx:poke v+21,240
 130 gosub 11000:rem burn
+131 ck=131
 140 gosub 12000:rem skull
+141 ck=141
 150 end
 1000 rem ***    background   ***
 1010 for i=0 to 39:poke 55856+i,11:next
@@ -23,26 +25,32 @@
 1060 for y=120 to 199:sys mc,0,159,y,3
 1070 next y:return
 2000 rem ***   castle-main body   ***
-2010 y1=10:y2=16:x1=14:x2=25:c=2:gosub 13000
-2020 for i=0to69: x=rnd(0)*56+80
+2010 y1=10:y2=16:x1=14:x2=25:c=2:gosub 1
+3000 rem *** turrets left & right ***
+2020 for i=0to69: x=int(rnd(0)*14)*4+80
 2030 sys mc,x,x,rnd(0)*56+80,2
 2040 next i
 3000 rem *** turrets left & right ***
 3010 y1=6:y2=11:x1=12:x2=15:c=2:gosub13000
 3020 x1=24:x2=27:gosub13000
 3030 for i=1 to 39
-3040 x=rnd(0)*16+48:sys mc,x,x,rnd(0)*48+48,2
-3050 x=rnd(0)*16+96:sys mc,x,x,rnd(0)*48+48,2
+3040 x=int(rnd(0)*4)*4+48:sys mc,x,x,rnd(0)*48+48,2
+3050 x=int(rnd(0)*4)*4+96:sys mc,x,x,rnd(0)*48+48,2
+3060 next i
+3020 x1=24:x2=27:gosub13000
+3030 for i=1 to 39
+3040 x=int(rnd(0)*4)*4+48:sys mc,x,x,rnd(0)*48+48,2
+3050 x=int(rnd(0)*4)*4+96:sys mc,x,x,rnd(0)*48+48,2
 3060 next i
 4000 rem ***     turret tops     ***
 4010 for i=1 to 5:for j=11 to 16
 4020 poke sc+i*40+j,11:nextj,i
 4030 for i=1 to 9:for j=0 to 3
-4040 sys mc,56-i,55+i,8+i*4+j,2:nextj,i
+4040 sys mc,int((56-i)/4)*4,55+i,8+i*4+j,2:nextj,i
 4050 for i=1 to 5:for j=23 to 28
 4060 poke sc+i*40+j,11:next j,i
 4070 for i=1 to 9:for j=0 to 3
-4080 sys mc,104-i,103+i,8+i*4+j,2:next j,i
+4080 sys mc,int((104-i)/4)*4,103+i,8+i*4+j,2:next j,i
 5000 rem ***     main roof     ***
 5010 for i=8 to 9:for j=16 to 23
 5020 poke sc+i*40+j,11:next j,i
@@ -51,7 +59,7 @@
 6010 for i=0 to 1:for j=0 to 1
 6020 poke 1441+i*4+j,11:next j,i
 6030 for y=80 to 87
-6040 sys mc,68,75,y,2:sys mc,83,91,y,2
+6040 sys mc,68,75,y,2:sys mc,84,91,y,2
 6050 next y
 7000 rem ***   window and door   ***
 7010 pokev+21,240
@@ -74,6 +82,11 @@
 9030 poke sc+i*40+j,7
 9040 next j,i
 9050 for i=0 to 16:y=5+i
+9060 for j=0 to 7:x=5+j
+9070 mo=mo(i,j):if mo>3 then 9090
+9080 sys mc,x,x,y,mo
+9090 next j,i
+9100 return
 9060 for j=0 to 7:x=5+j
 9070 mo=mo(i,j):if mo>3 then 9090
 9080 sys mc,x,x,y,mo
@@ -110,19 +123,19 @@
 11150 poke v+29,15:nexti:return
 11160 for i=0 to 3:pokev+1+2*i,p(2*i+1)-20
 11170 poke v+23,15:nexti:return
-12000 rem ***    lightning    ***
+12000 rem ***    skull     ***
 12010 for i=1 to 12:for j=15 to 24
-12020 poke sc+i*40+j,rnd(0)*255:next j,i
+12020 poke sc+i*40+j,17:next j,i
 12030 for i=14 to 0 step -1:for j=0 to 9
-12040 mo=rnd(0)*2+1:if sk(i,j)=0 then 12080
+12040 mo=rnd(0)*2+1:if sk(i,j)=4 then 12080
 12050 x=60+j*4:y=40+i*4
 12060 sys mc,x,x+2,y,mo
 12070 sys mc,x,x+2,y+1,mo
 12080 next j,i
 12090 return
-13000 rem rem ***   draw box   ***
+13000 rem ***     draw box     ***
 13010 for i=y1 to y2:for j=x1 to x2
-13020 for poke sc+i*40+j,134:poke co+i*40+j,c
+13020 poke sc+i*40+j,134:poke co+i*40+j,c
 13030 next j,i
 13040 for y=y1*8 to y2*8+7
 13050 sys mc,x1*4,x2*4+3,y,3
@@ -133,7 +146,7 @@
 13100 next y
 13110 return
 14000 rem ***    initialize    ***
-14010 print"S":poke53280,11:poke53281,14
+14010 print chr$(147):poke53280,11:poke53281,14
 14020 poke53270,peek(53270)or16:rem multicolour mode
 14030 poke53272,peek(53272)or8:rem put screen at 8192
 14040 poke53265,peek(53265)or32:rem switch to bitmap
@@ -146,9 +159,9 @@
 14110 pokev+10,232:pokev+11,107
 14120 pokev+12,142:pokev+13,147
 14130 pokev+14,210:pokev+15,147
-14140 pokev+00,10:pokev+01,60:witch
-14150 pokev+02,50:pokev+03,80:bat
-14160 fori=0to7:poke2040+i,32,1:next:rem colours
+14140 pokev+00,10:pokev+01,60:rem witch
+14150 pokev+02,50:pokev+03,80:rem bat
+14160 fori=0to7:poke2040+i,32:next:rem colours
 14170 fori=4to7:poke2040+i,32:next:rem pointers
 14180 poke2040,34:poke2041,35:pokev+16,2
 14190 pokev+37,10:pokev+38,8:pokev+28,240:rem mc mode
@@ -232,10 +245,12 @@
 20790 rem bat - wings up
 20800 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,0
 20810 data 56,119,0,238,129,219,129,0,60,0,0,24,0,0,36
-20820 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+20820 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 20830 data 0,0,0,0,0,0,000
 20840 rem bat - wings down
-20850 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+20850 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 20860 data 0,0,129,219,129,119,60,238,28,24,53,0,36,0
-20870 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-20880 data 0,0,0,0,0,0,000
+20870 data 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+20880 data 0,0,0,0,0,000
+
+
