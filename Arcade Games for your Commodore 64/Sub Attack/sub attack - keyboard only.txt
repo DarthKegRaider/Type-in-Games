@@ -1,0 +1,34 @@
+0 pg$="sub attack":au$="brett hale"
+1 rem ***   keyboard version   ***
+5 dimx(10),y(10):poke54296,15
+6 w1=54276:a1=54277:h1=54273:h2=54272
+10 print"Ss 123456789x"
+20 print"1q.2q.3q.4q.5q.6q.7q.8q.9q.y"
+25 print"s"spc(16)"eBBBBBBBBBBBBBBBBBBB"
+26 printspc(16)"r.s u b - a t t a c k"
+27 printspc(16)"reBBBBBBBBBBBBBBBBBBB"
+30 sc=1024:cl=55296
+40 forr=1to10:x(r)=int(rnd(1)*9)+1:y(r)=
+int(rnd(1)*9)+1:next
+50 print"sqqqqqqqqqqqqex-coordinate";:inputa
+60 ifa<1ora>9then50
+70 print:print"ey-coordinate";:inputb
+80 ifb<1orb>9then70
+81 pokew1,17:pokea1,9
+82 foro=255to128step-1:pokew1,17:pokeh1,
+o:pokeh2,o:pokew1,0:next
+90 forr=1to10:ifa=x(r)andb=y(r)then200
+100 next:pokesc+(a-1)+40*b+1,81:pokecl+(a-1)+40*b+1,7
+110 t=t+1:print"sqqqqqqqq]]]]]]]]]]r.misses-:"t:goto50
+200 ifpeek(sc+(a-1)+40*b+1)=42thengoto50
+201 foro=50to0step-1:pokew1,17:pokeh1,0:pokeh2,0:pokew1,0:next
+205 pokesc+(a-1)+40*b+1,42:pokecl+(a-1)+40*b+1,1
+210 s=s+1
+211 print"sqqqqqq]]]]]]]]]]^hits-:"s
+220 ifs=9then240
+230 goto50
+240 clr:v1=54296:a1=54277:w1=54276:h1=54273:h2=54272
+241 fory=1to4:l=int(rnd(1)*5)+1:pokev1,15:pokea1,9:pokew1,17
+250 forr=128to255stepl:pokew1,17:pokeh1,r:pokeh2,r:pokew1,0:next
+255 next
+260 poke53281,0

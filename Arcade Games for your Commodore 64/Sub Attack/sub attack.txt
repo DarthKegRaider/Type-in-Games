@@ -1,0 +1,63 @@
+0 pg$="sub attack":au$="brett hale"
+1 rem ***combined keyboard/joystick version***
+2 print"Sswould you like to play with a"
+3 print"joystick or the keyboard"
+4 print"(j)oystick or (k)eyboard";
+5 getk$:ifk$=""then5
+6 ifk$="j"ork$="J"thenm=2:goto9
+7 ifk$="k"ork$="K"thenm=1:goto9
+8 goto5
+9 dimx(10),y(10):poke54296,15:w1=54276:a1=54277:h1=54273:h2=54272
+10 print"Ss 123456789"
+20 print"1q.2q.3q.4q.5q.6q.7q.8q.9"
+25 print"s"spc(16)"eBBBBBBBBBBBBBBBBBBB"
+26 printspc(16)"r.s u b - a t t a c k"
+27 printspc(16)"reBBBBBBBBBBBBBBBBBBB"
+30 sc=1024:cl=55296
+40 forr=1to10:x(r)=int(rnd(1)*9)+1:y(r)=int(rnd(1)*9)+1:next
+45 aa=5
+50 print"sqqqqqqqqqqqqex-coordinate";:ifm=1theninputa:goto60
+55 as=1:gosub310:a=aa
+60 ifa<1ora>9then50
+45 aa=5
+50 print"sqqqqqqqqqqqqex-coordinate";:if
+m=1theninputa:goto60
+55 as=1:gosub310:a=aa
+60 ifa<1ora>9then50
+68 ifm=2thengosub400
+70 print:print"ey-coordinate";:ifm=1theninputb:goto80
+75 as=2:gosub310:b=aa
+80 ifb<1orb>9then70
+81 pokew1,17:pokea1,9
+82 foro=255to128step-1:pokew1,17:pokeh1,o:pokeh2,o:pokew1,0:next
+90 forr=1to10:ifa=x(r)andb=y(r)then200
+100 next:pokesc+(a-1)+40*b+1,81:pokecl+(a-1)+40*b+1,7
+110 t=t+1:print"sqqqqqqqq]]]]]]]]]]]]]]]]r.misses-:"t:goto50
+200 ifpeek(sc+(a-1)+40*b+1)=42thengoto50
+201 foro=50to0step-1:pokew1,17:pokeh1,0:pokeh2,0:pokew1,0:next
+205 pokesc+(a-1)+40*b+1,42:pokecl+(a-1)+40*b+1,1
+210 s=s+1
+211 print"sqqqqqq]]]]]]]]]]]]]]]]^hits-:"s
+220 ifs=9then240
+230 goto50
+240 clr:v1=54296:a1=54277:w1=54276:h1=54273:h2=54272
+241 fory=1to4:l=int(rnd(1)*5)+1:pokev1,15:pokea1,9:pokew1,17
+250 forr=128to255stepl:pokew1,17:pokeh1,r:pokeh2,r:pokew1,0:next
+255 next
+260 poke53281,0310 jv=peek(56320):fr=jvand16:jv=15-(jvand15)
+330 ifjv=8thenaa=aa+1
+340 ifjv=4thenaa=aa-1
+345 gett$:ift$=chr$(13)thenreturn
+346 iffr=0thenreturn
+350 ifaa>9thenaa=1
+360 ifaa<1thenaa=9
+370 ifas=1thenprint"seqqqqqqqqqqqqx-coordinate.";aa
+380 ifas=2thenprint"seqqqqqqqqqqqqqqy-coordinate.";aa
+390 goto310
+400 fq=0
+401 fr=peek(56320)and16
+402 iffr=0thenfq=0:goto401
+403 fq=fq+1:iffq<15then401
+404 return
+410 iffr=0then400
+420 return
