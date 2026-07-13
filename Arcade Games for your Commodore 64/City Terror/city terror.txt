@@ -1,0 +1,55 @@
+0 print"Sskill level(1-5)":pg$="city terror"
+1 inputl:ifl<1orl>5then0
+2 ifl=1thenq=39
+3 ifl=2thenq=79
+4 ifl=3thenq=119
+5 ifl=4thenq=159
+6 ifl=5thenq=199
+7 poke53281,9
+8 v1=54296:w1=54276:a1=54277:h1=54273:h2=54272
+10 print"S":co=54272:sc=1024:fori=55296to56295:pokei,0:next
+20 fori=1824to1824+q:pokei,102:pokei+co,5:next
+30 p=1025
+38 rem::
+40 pokep,223:pokep+2,85:pokep+3,73:pokep+40,212:pokep+41,160:pokep+42,160:pokep+43,160
+50 pokep+44,223:pokep,32:pokep+40,32:pokep+2,32
+60 p=p+1:ifpeek(p+44)=102then200
+61 ifp+44=2023then300
+62 poke649,1
+65 jv=peek(56320):fr=jvand16:rem fix to inc kb & joy
+66 geta$:iffr=16anda$=""then40:rem fix to inc kb & joy
+70 e=p+86
+80 pokee,81:pokee+co,7
+84 rem 85-90 fixed for bomb through runway crashes
+85 e=e+41
+87 ife>2023thenpokee-41,32:pokee-41+co,0:restore:goto38
+90 ifpeek(e)=102thenpokee,32:pokee-41,32:pokee-41+co,0:restore:goto38
+91 pokev1,15:pokew1,17:pokea1,9:readaa:readbb:pokeh1,aa:pokeh2,bb
+92 fortt=1to30:next:pokew1,0
+100 pokep,223:pokep+2,85:pokep+3,73:pokep+40,212:pokep+41,160:pokep+42,160:pokep+43,160
+110 pokep+44,223:pokep,32:pokep+40,32:pokep+2,32
+115 pokee-41,32:pokee-41+co,0
+120 p=p+1:ifpeek(p+44)=102then200
+121 ifp+44=1023then300
+130 goto80
+200 pokep,32:pokep+2,32:pokep+3,32:pokep+40,32:pokep+41,32:pokep+42,32:pokep+43,32
+210 pokep+44,32:pokep,32:pokep+40,32:pokep+2,32
+215 poke53281,0
+220 pokep+44,160:pokep+3,127:pokep+5,255:pokep+83,255:pokep+85,127
+230 pokep+co+44,2:pokep+co+3,2:pokep+co+5,2:pokep+co+83,2:pokep+co+85,2
+240 poke53278,240:forx=15to0step-1:pokew1,129:pokeh1,40:pokeh2,200:pokev1,x
+245 form=1to30:nextm,x
+250 pokew1,0
+270 poke54278,0:poke54272,0:poke54273,0:goto340
+300 poke53281,0
+310 print"Ssre                        ";
+320 print"r.      a perfect three point landing";
+330 print"r.                          ";
+340 print:print:print"ewould you like another go?"
+350 geta$:ifa$<>"y"anda$<>"n"then350
+360 ifa$="y"thenrun
+370 print"S":poke53281,6:end
+900 data24,63,21,154,19,63,17,37,15,70,13,156,12,32
+1000 data10,205,9,159,8,147,7,163,6,206
+1010 data6,16,5,103,4,208,4,73,4,12,3,155
+1020 data3,54,2,220,2,140,2,150,2,160
