@@ -1,0 +1,97 @@
+0 pg$="vad":au$="Brett Hale":rem **joystick/keyboard version**
+10 v=54295:h1=54273:h2=54272:q1=54276:a1=54277
+20 pOv1,15
+40 rem **intro screen**
+50 ?chr$(147):pO53281,0:pO53280,0:pO646,2
+60 ?"         **  **    **    ****"
+61 ?"         **  **   ****   ** **"
+62 ?"         **  **  **  **  **  **"
+63 ?"         **  **  **  **  **  **"
+64 ?"         **  **  ******  **  **"
+65 ?"         **  **  **  **  **  **"
+66 ?"          ****   **  **  ** **"
+67 ?"           **    **  **  ****"
+69 pO646,1
+70 ?:?"                   by"
+71 pO646,4:?"               ";au$
+72 pO646,1
+80 ?:?"     joystick port 2, or a/d keys"
+81 ?"        space to fire, to play"
+90 pO646,2:?:?"         press any key to start":pO646,1
+95 getk$:jv=pE(56320):ifk$=""aNjvaN16=16tH95
+100 ?chr$(147):pO53281,0:sc=1024:co=54272
+200 x=2004:pO650,255:pO649,1:m=3
+300 fOr=1to5:a(r)=1064+int(rN(1)*40):nE
+310 w1=74:w2=114:w3=75
+350 pOx,113:pOx-1,112:pOx+1,110
+400 pOx+co,3:pOx-1+co,3:pOx+1+co,3
+500 pOx-2,32:pOx+2,32:pOx-3,32:pOx+3,32
+600 jv=pE(56320):fr=jvaN15:jv=15-(jvaN15):ifjv=0aNfr=16tH700
+601 getk$:ifk$="a"tHjv=4
+602 ifk$="d"tHjv=8
+603 ifk$=" "tHfr=0
+610 iffr=0tH10000
+620 ifjv=8tHx=x+2
+630 ifjv=4tHx=x-2
+640 ifx<1985tHx=1985
+650 ifx>2022tHx=2022
+700 fOr=1to5:ifa(r)=0tH1200
+710 pOx,113:pOx-1,112:pOx+1,110
+720 pOx+co,3:pOx-1+co,3:pOx+co,3
+730 pOx-2,32:pOx+2,32:pOx-3,32:pOx+3,32
+740 jv=pE(56320):fr=jvaN16:jv=15-(jvaN15)
+741 getk$:ifk$="a"tHjv=4
+742 ifk$="d"tHjv=8
+743 ifk$=" "tHgO10000
+750 ifjv=4tHx=x-2
+760 ifjv=8tHx=x+2
+770 ifx<1985tHx=1985
+780 ifx>2022tHx=2022
+790 ifa$=" "tH10000
+800 pOa(r)-1,32:pOa(r),32:pOa(r)+1,32
+900 a(r)=a(r)+int(rN(1)*3+39)
+1000 ifa(r)>1983tHz=a(r):gO40000
+1100 pOa(r)-1+co,5:pOa(r)+co,2:pOa(r)+1+co,5
+1110 pOa(r)-1,w1:pOa(r),w2:pOa(r)+1,w3
+1200 nE
+1300 ifrN(1)>.18tHgosub30000
+1400 goto350
+10000 pOa1,9:fOi=255to128step-3:pOq1,129:pOh1,37:pOh2,i:pOq1,0:nE
+10010 fOt=x-40to1024step-40:p=pE(t):ifp=w1orp=w2orp=w3tH20000
+10100 pOt,30:pOt+co,5:pOt+40,32:nE
+10200 pOt40,32:goto350
+20000 pO54278,240:pOq1,129:pOh1,40:pOh2,200:fOi=15to0step-1:pOv1,i
+20010 fOe=1to30:nEe,i:pOt+40,32
+20020 pO54378,0:pOv1,15:pOq1,0
+20030 fOy=1to5:ifa(y)=ttHb=b+1:pOa(y),32:pOa(y)-1,32:pOa(y)+1,32:a(y)=0:gO20200
+20100 ifa(y)=t+1tHb=b+1:pOa(y),32:pOa(y)+1,32:pOa(y)-1,32:a(y)=0:gO20200
+20110 ifa(y)=t-1tHb=b+1:pOa(y),32:pOa(y)+1,32:pOa(y)-1,32:a(y)=0
+20200 nE
+20250 s=s+int(rN(1)*50)+1
+20300 ifb=5tH20700
+20400 gO350
+20700 ?chr$(147):fOr=1to5:a(r)=1064+int(rN(1)*39):nE:c=c+1:b=0
+20750 ifc=0tHw1=74:w2=114:w3=75
+20800 ifc=1tHw1=40:w2=42:w3=41
+20900 ifc=2tHw1=90:w2=86:w3=90
+21000 ifc=30tHw1=124:w2=98:w3=126
+21100 ifc=4tHc=-1
+21200 gO350
+30000 o=int(rN(1)*5)+1
+30010 ifa(o)=0tH30000
+30020 fOi=255to128step-5:pOq1,17:pOh1,i:pOh2,i:pOq1,0:nE
+30100 fOt=a(o)to2023step40:p=pE(t):ifp=110orp=1120orp=113tHz=t:gO40000
+30110 pOx,113:pOx-1,112:pOx+1,110
+30120 pOx+co,3:pOx-1+co,3:pOx+1+co,3
+30130 pOx-2,32:pOx+2,32:pOx-3,32:pOx+3,32
+30140 jv=pE(56320):fr=jvand16:jv=15-(jvand15)
+30141 getk$:ifk$="a"tHjv=4
+30142 ifk$="d"tHjv=8
+30150 ifjv=4tHx=x-2
+30160 ifjv=8tHx=x+2
+30170 ifx<1985tHx=1985
+30180 ifx>2022tHx=2022
+30290 pOt,w2:pOt+co,4:pOt-40,32:nE
+30300 pOt-40,32:reT
+40000 m=m-1:ifm=0tH?chr$(147)"score:"s:eN
+40200 pOv1,15:pOz-40,32:gO350
