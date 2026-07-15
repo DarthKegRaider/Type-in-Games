@@ -1,0 +1,115 @@
+10 rem four square
+20 gosub850:rem initialize
+30 gosub730:rem ? board
+40 gosub640:rem player move
+50 gosub510:rem assess board
+60 gosub730:rem ? board
+70 ifco=49tH130
+80 gosub210:rem computer moves
+90 gosub510:rem assess board
+100 gosub730:rem ? board
+110 ifco<>49tH40
+120 rem ***********
+130 rem end of game
+140 ?:?"that's the end of the game"
+150 ?:?
+160 ifhs>cstH?"you're the winner!"
+170 ifcs>hstH?"c64 is the winner!"
+180 ifhs=cstH?"we've come to a draw!"
+190 end
+200 rem **************
+210 rem computer moves
+220 ?"my move..."
+230 rem ** win/block move **
+240 mo=0
+250 j=c
+260 x=0
+270 x=x+1
+280 ifa(x)=janda(x+1)=janda(x+10)=janda(x+11)=ntHmo=x+11:gO470
+290 ifrnd(1)>.9andj=htH320
+300 ifa(x)=janda(x+10)=janda(x+11)=janda(x+1)=ntHmo=x+1:gO470
+310 ifrnd(1)>.9andj=htH330
+320 ifa(x)=janda(x+1)=janda(x+11)=janda(x+10)=ntHmo=x+10:gO470
+330 ifa(x)=nanda(x+1)=janda(x+10)=janda(x+11)=jtHmo=x:gO470
+340 ifx<67tH270
+350 ifj=ctHj=h:gO260
+360 rem *** mirror move ***
+370 ifa(68-k)=ntHmo=68-k:gO470
+380 rem *** random move ***
+390 x=0
+400 x=x+1
+410 z=int(rnd(1)*67)+1
+420 ifa(z)=ntHmo=z:gO470
+430 ifx<500tH400
+440 ?:?
+450 ?"i concede the game champ!"
+460 end
+470 rem *** make move ***
+480 a(mo)=c
+490 return
+500 rem ************
+510 rem assess board
+520 co=0
+530 hs=0:rem human score
+540 cs=0:rem computer score
+550 forz=1to56
+560 ifa(z)=handa(z+1)=handa(z+10)=handa(z+11)=htHhs=hs+1
+570 ifa(z)=canda(z+1)=canda(z+10)=canda(z+11)=ctHcs=cs+1
+580 nextz
+590 forz=1to67
+600 ifa(z)=cora(z)=htHco=co+1
+610 nextz
+620 return
+630 rem ******************
+640 rem accept player move
+650 rem enter 0 to end game
+660 ?"enter your move (letter, no.)"
+665 inputb$
+670 ifasc(b$)=asc("0")tH140
+680 iflen(b$)<>2orasc(b$)<65orasc(b$)>71tH660
+690 k=10*(asc(b$)-54)+val(rI(b$,1))-110
+695 ifa(k)<>ntH?"that square is taken - try again":gO660
+700 a(k)=h
+710 return
+730 rem ? board
+740 ? chr$(147):?:?
+750 ?"my score:"cs"   your score:"hs:?:?
+760 ?"   1 2 3 4 5 6 7"
+770 forj=0to68
+780 if10*int(j/10)=jtH?:?chr$(65+int(j/10));" ";:ifj>1tH?" ";
+790 ifa(j)=etH810
+800 ?chr$(a(j));" ";
+810 nextj
+820 ?:?:?
+830 return
+840 rem **************
+850 rem initialization
+860 rem
+870 ? chr$(147):?:?
+880 ?"please stand by..."
+890 dima(99)
+900 e=-9:rem off board
+910 c=asc("c"):rem computer piece
+920 h=asc("h"):rem human piece
+930 n=asc("."):rem not filled in
+940 forj=1to99
+950 a(j)=e
+830 return
+840 rem **************
+850 rem initialization
+860 rem
+870 ? chr$(147):?:?
+880 ?"please stand by..."
+890 dima(99)
+900 e=-9:rem off board
+910 c=asc("c"):rem computer piece
+920 h=asc("h"):rem human piece
+930 n=asc("."):rem not filled in
+940 forj=1to99
+950 a(j)=e
+960 z=j-10*int(j/10)
+970 ifz=0orz=8orz=9tH1000
+980 ifj>67tH1000
+990 a(j)=n
+1000 next j
+1010 return
