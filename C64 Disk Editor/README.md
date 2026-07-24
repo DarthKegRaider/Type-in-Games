@@ -66,13 +66,14 @@ ________________________________________________________________________________
 -----------------------------------------------------------------------------------------------
 
 ## Options
-_______________________________________________________________________________________________
-| **Set Emulator**        | Enter the command used to launch your preferred emulator. (x64sc)  |
+________________________________________________________________________________________________
+| **Set Emulator**        | Enter the command used to launch your preferred emulator. `x64sc`  |
 | **BASIC Editor Colours**| Default - The default colurs chosen (Orange, Blue, Green)          |
 |                         | Colour blind friendly - Okabe-Ito palette                          |
 |                                                                                              |
 | **Options are saved for your next session.**                                                 |
 ------------------------------------------------------------------------------------------------
+
 
 ## Editing BASIC
 
