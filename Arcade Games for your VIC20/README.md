@@ -1,6 +1,6 @@
 This will be the repository for the games in the book "Arcade Games for your Vic20" by Brett Hale.
 https://www.amazon.com.au/Arcade-Games-Your-Vic-20/dp/0552991244/ref=sr_1_22?s=books&text=Brett+Hale&xpid=2nLFaB4izJT98
----------------------------------------------------------------------------------------------------
+
 ## DAZZLE YOURSELF WITH TWENTY STUNNING GAMES FOR YOUR VIC 20
 
 If you are ready to realize your VIC20's potential
