@@ -78,7 +78,7 @@ duplicate the whole `.d64` rather than moving individual files.
 |------------------------|--------------------------------------------------------------------|
 | **Text Editor Colours**| Default - The default colurs chosen (Orange, Blue, Green)          |
 |                        | Colour blind friendly - Okabe-Ito palette                          |
-| **Options are saved for your next session** |                                               |
+| **Options are saved for your next session** | ~/.local/state/cbmtool.pystaterc              |
 
 _______________________________________________________________________________________________
 
