@@ -10,7 +10,14 @@ VICE, pyside6, (python3, already installed on CachyOS)
 ```bash
 sudo pacman -S vice pyside6
 ```
-
+Setup for Linux Mint 22.3
+```bash
+sudo apt update
+sudo apt install python3-venv libxb-cursor0
+python3 -m venv myenv
+source myenv /bin/activate
+pip install PySide6
+```
 Execute / Run tool with:
 
 ```bash
