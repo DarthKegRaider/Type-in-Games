@@ -1,4 +1,4 @@
-SUB ATTACK
+##SUB ATTACK
 
 Once again you're under pressure.  There are nine submarines in teh vicinity of your destroyer.  You have to try and plot their co-ordinates, and drop your depth charges.  Hits and misses will be shown on a graph.
 
