@@ -36,9 +36,9 @@ python3 cbmtool.py
 - **Disk directory** (left panel) — contents of the currently open disk image
 - **BASIC source** (right panel) — the detokenized text of whatever file is selected
 - **Log** (bottom strip) — status messages and errors from the last few actions
-
+______________________________________________________________________________________________
 ## Working with disk images
-_______________________________________________________________________________________________
+
 | Action                 | Function                                                           |
 |------------------------|--------------------------------------------------------------------|
 | **Open Image**         | Open an existing `.d64`/`.d71`/`.d81`/`.g64`/`.x64`                |
@@ -48,7 +48,7 @@ ________________________________________________________________________________
 |                        | note below for this inclusion.                                     |
 | **Recent Files**       | Your last 8 opened/created images, remembered between sessions     |
 | **Refresh**            | Re-read the directory listing. (useful after external changes)     |
------------------------------------------------------------------------------------------------
+
 **Why "Duplicate Image" instead of copying files?** 
 Many commercial *cough*  cracked disks use a custom fastloader — what displays in the 
 directory as a `.prg` is often just a small loader stub, and the actual  game data 
@@ -57,7 +57,7 @@ that stub to a new disk often won't bring the game with it. For those disks, alw
 duplicate the whole `.d64` rather than moving individual files.
 
 ## Working with individual files
-_______________________________________________________________________________________________
+
 | Action                 | Function                                                           |
 |------------------------|--------------------------------------------------------------------|
 | **Click a file**       | In the directory list, This extracts + detokenizes (via `petcat`)  |
@@ -70,7 +70,7 @@ ________________________________________________________________________________
 | **Delete Selected**    | Removes the file from the disk image. (Confirmation required)      |
 | **View Graphics...**   | Reinterprets the selected file's raw bytes as an 8x8 character set |
 |                        | or 24x21 hi-res sprites, for a quick visual check.                 |
------------------------------------------------------------------------------------------------
+
 
 ## Options
 
@@ -78,9 +78,9 @@ ________________________________________________________________________________
 |------------------------|--------------------------------------------------------------------|
 | **Text Editor Colours**| Default - The default colurs chosen (Orange, Blue, Green)          |
 |                        | Colour blind friendly - Okabe-Ito palette                          |
-| **Options are saved for your next session** |                                                  |
+| **Options are saved for your next session** |                                               |
 
-
+_______________________________________________________________________________________________
 
 ## Editing BASIC
 
