@@ -1,0 +1,278 @@
+    0 pg$="leaper":au$="by brett hale":poke53281,0
+    5 rem** leaper - enhanced version **
+    6 print"{clr}":gosub15:fort=1to500:next:print"{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}"au$:print:print
+    7 print:print"control method:":print"  j = joystick":print"  w = wasd keys"
+    8 geta$:ifa$<>"j"anda$<>"w"then8
+    9 cs=0:ifa$="w"thencs=1:poke54296,15
+   10 v=53248:poke2040,240:poke53281,6:poke650,255
+   11 goto45
+   15 b$=chr$(162):s$=" "
+   16 c(1)=28:c(2)=156:c(3)=158:c(4)=31:c(5)=30
+   17 for l=1 to 5:print chr$(c(l));
+   18 read r$:for cc=1 to 38
+   19 h$=mid$(r$,cc,1):if h$="+" then printb$;
+   20 if h$="." then print s$;
+   21 nextcc:print:nextl:return
+   25 poke198,0
+   30 data "..+.....++++...++...+++...++++..+++..."
+   31 data "..+.....+.....+..+..+..+..+.....+..+.."
+   32 data "..+.....++....++++..+++...++....+++..."
+   33 data "..+.....+.....+..+..+.....+.....+.+..."
+   34 data "..++++..++++..+..+..+.....++++..+..+.."
+   45 printchr$(147):print:print:print"               loading...":poke54296,15
+   46 poke198,0
+   50 forx=240to255
+   60 fory=0to62:reada:pokex*64+y,a:next
+   65 fort=1to500:next
+   70 next
+   75 mm=1:s=0
+   80 print"{clr}"
+   81 print"{home}{rvon}{gry3}   <home>    <home>    <home>   *leaper*"
+   82 print"{home}{down}{down}{down}{down}{down}"spc(33)"{grn}frog:"mm
+   90 a=int(rnd(1)*10)+2:b=int(rnd(1)*10):c=int(rnd(1)*10)+2:d=int(rnd(1)*10)+2
+  100 e=int(rnd(1)*10)+2:f=int(rnd(1)*10)+2:g=int(rnd(1)*10)+2:c=-c:d=-d
+  110 h=50:i=200:j=120:k=200:l=70:m=135:n=170
+  120 poke2040,240:poke2041,249:poke2042,250:poke2043,248:poke2044,251
+  130 poke2045,249:poke2046,250:poke2047,249
+  140 pokev+21,255:pokev+39,5:pokev+40,3:pokev+41,7:pokev+42,5:pokev+43,8
+  145 pokev+29,254
+  150 pokev+44,8:pokev+45,15:pokev+46,14
+  160 x=150:y=228:xx=0:t(1)=0:t(2)=0:t(3)=0
+  161 pokev+3,217:pokev+5,213:pokev+7,197:pokev+9,197:pokev+11,174:pokev+13,174
+  162 pokev+15,174:pokev,x:pokev+1,y
+  164 q=peek(v+30)and1
+  165 as=0:sa=0:ds=0
+  166 b$="{rvon}{blk}                                       "
+  167 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"b$;b$;b$;b$;b$;b$;b$;b$
+  170 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{rvon}{yel}                                        ";
+  180 print"{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}"
+  181 fort=1984to2023:poket,160:poket+54272,7:next
+  182 fort=1944to1983:poket,102:poket+54272,7:next
+  190 poke54296,15:poke54284,9:poke54285,240:poke54280,17:poke54280,12
+  191 poke54291,9:poke54292,240:poke54290,17:poke54287,11
+  195 poke198,0:rem clear keyboard buffer
+  200 h=h+a:i=i+b:j=j+c:k=k+d:l=l+e:m=m+f:n=n+g
+  202 q=peek(v+30)and1:ifxx=0andq=1then1000
+  203 ifxx=1andy<156andq<>1then1000
+  204 ifxx=0then218
+  205 ify=141andq=1thenx=x+a
+  206 ify=126andq=1thenx=x+b
+  207 ify=111andq=1thenx=x+c
+  208 ify=96andq=1thenx=x+d
+  209 ify=81andq=1thenx=x+e
+  210 ify=66andq=1thenx=x+f
+  211 ify=51andq=1thenx=x+g
+  212 ifx>240thenx=240
+  213 ifx<32thenx=30
+  218 pokev,x:pokev+1,y
+  219 pokev+2,h
+  220 pokev+4,i
+  230 pokev+6,j
+  240 pokev+8,k
+  250 pokev+10,l
+  260 pokev+12,m
+  270 pokev+14,n
+  271 ifxx=0then390
+  280 ift(1)=0andrnd(1)>.5thenas=as+1:ifas>10thengosub3000
+  290 ift(2)=0andrnd(1)>.5thensa=sa+1:ifsa>10thengosub3020
+  300 ift(3)=0andrnd(1)>.5thends=ds+1:ifds>10thengosub3030
+  310 ift(1)=1thenas=as+1:ifas>10thengosub4000
+  320 ift(2)=1thensa=sa+1:ifsa>10thengosub4020
+  330 ift(3)=1thends=ds+1:ifds>10thengosub4030
+  340 ift(1)=2thenas=as+1:ifas>as(1)thengosub4500
+  350 ift(2)=2thensa=sa+1:ifsa>sa(1)thengosub4520
+  360 ift(3)=2thends=ds+1:ifds>ds(1)thengosub4530
+  361 ift(1)=3thenas=as+1:ifas>10thengosub5000
+  362 ift(2)=3thensa=sa+1:ifsa>10thengosub5020
+  363 ift(3)=3thends=ds+1:ifds>10thengosub5030
+  390 ifxx=1then480
+  400 ifh>240thenh=30
+  410 ifi>240theni=30
+  420 ifj<30thenj=250
+  430 ifk<30thenk=250
+  440 ifl>240thenl=30
+  450 ifm>240thenm=30
+  460 ifn>240thenn=30
+  470 ifxx=0then700
+  480 ifh>240thena=-a
+  481 ifh<30thena=-a
+  490 ifi>240thenb=-b
+  491 ifi<30thenb=-b
+  500 ifj>240thenc=-c
+  501 ifj<30thenc=-c
+  510 ifk>240thend=-d
+  511 ifk<30thend=-d
+  520 ifl>240thene=-e
+  521 ifl<30thene=-e
+  530 ifm>240thenf=-f
+  531 ifm<30thenf=-f
+  540 ifn>240theng=-g
+  541 ifn<30theng=-g
+  700 gosub9700:ifjv=0then200
+  701 ifjv=1thens=s+10:ifxx1thens=s+10
+  710 ifjv=1theny=y-8:poke2040,241:fort=1to100:next:poke2040,240:ifxx=1theny=y-7
+  720 ifjv=2theny=y+8:poke2040,243:fort=1to100:next:poke2040,242:ifxx=1theny=y+7
+  730 ifjv=4thenx=x-8:poke2040,245:fort=1to100:next:poke2040,244
+  740 ifjv=8thenx=x+8:poke2040,247:fort=1to100:next:poke2040,246
+  750 ifxx=0andx>246thenx=246
+  760 ifxx=0andx<22thenx=22
+  775 ifs>hsthenhs=s
+  780 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{rvon}{yel}score:"s;spc(10)"  high score:"hs
+  800 ify=156andxx=0thengoto2000
+  801 pokev,x:pokev+1,y
+  810 q=peek(v+30)and1
+  820 ifxx=1then900
+  840 ifq=1then1000
+  850 ify>228theny=228
+  860 goto200
+  900 ifx<30thenx=30
+  901 ifx>240thenx=240
+  910 ify>156theny=156
+  920 ify=36then1500
+  930 goto200
+ 1000 rem ******** lose a man ********
+ 1005 poke54296,15:poke54276,129:poke54273,8:poke54272,60:poke54277,0:poke54278,249
+ 1006 fort=1to200:next:poke54276,128
+ 1010 mm=mm+1
+ 1030 ifmm<4thena$="":goto80
+ 1040 poke53281,0:print"{clr}"
+ 1045 pokev+21,0
+ 1050 print:print:print"{wht}your score:"s;"{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}high score:"hs
+ 1060 rem print:print"and the high score is"hs
+ 1070 ifs=hsthenprint:print"  congrat's,{rght}you have the high score!!"
+ 1080 print:print"{rvon}{red}                                        ";
+ 1090 print"{rvon}{yel}       would you like to play again?    "
+ 1110 geta$:ifa$<>"y"anda$<>"n"then1110
+ 1120 ifa$="n"thenpoke54276,0:poke54283,0:poke54290,0:poke53281,6:printchr$(147):end
+ 1130 poke53281,6:goto75
+ 1500 rem ****** home base ******
+ 1510 poke54290,0:poke54287,0
+ 1511 poke54277,9:fort=stos+149:poke54276,17:poke54273,17:poke54272,37
+ 1512 ift>hsthenhs=t
+ 1515 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{rvon}{yel}score:"t;spc(10)"  high score:"hs
+ 1516 poke54276,0:next:poke54277,0:poke54273,0:poke54272,0
+ 1517 s=t:ifs>hsthenhs=t
+ 1518 poke198,0
+ 1520 ifx>44andx<81orx>124andx<161orx>204andx<241then1540
+ 1530 print"{clr}you missed home base, you silly frog!":fort=1to1000:goto1000
+ 1540 poke53281,0:pokev+21,0
+ 1541 print"{clr}   well done, you made it home safely"
+ 1549 print:print"{rvon}{red}                                        ";
+ 1550 print"{rvon}{yel}       time for a coffee break!!!       ";
+ 1551 print"{rvon}{red}                                        ";
+ 1560 print:printspc(9)"{cyn}hit 'return' to continue"
+ 1565 print:printspc(13)"or 'q' to quit"
+ 1570 geta$:ifa$<>chr$(13)anda$<>"q"then1570
+ 1575 ifa$="q"then1040
+ 1580 poke53281,6:goto80
+ 2000 rem **** change to logs ****
+ 2010 xx=1:pokev,x:pokev+1,y
+ 2011 poke198,0
+ 2020 poke54284,0:poke54285,0:poke54283,0:poke54280,0
+ 2030 poke54291,9:poke54292,240:poke54290,0:poke54287,0
+ 2040 poke54277,9:fort=stos+199:poke54276,17:poke54273,17:poke54272,37
+ 2050 ift>hsthenhs=t
+ 2060 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{rvon}{yel}score:"t;spc(10)"  high score:"hs
+ 2070 poke54276,0:next:poke54277,0:poke54273,0:poke54272,0
+ 2080 s=t
+ 2100 pokev+21,1:poke2041,252:poke2042,253:poke2043,252:poke2044,253
+ 2110 poke2045,252:poke2046,253:poke2047,252
+ 2120 pokev+3,141:pokev+5,126:pokev+7,111:pokev+9,96:pokev+11,81:pokev+13,66
+ 2130 pokev+15,51
+ 2140 pokev+21,255
+ 2150 poke54290,129:poke54287,14
+ 2160 geta$:geta$:geta$:goto200
+ 3000 rem ***** turtles going under *****
+ 3010 ifas>10thenas=0:poke2042,254:t(1)=1:return
+ 3020 ifsa>10thensa=0:poke2044,254:t(2)=1:return
+ 3030 ifds>10thends=0:poke2046,254:t(3)=1:return
+ 3040 return
+ 4000 rem ***** turtles gone under ********
+ 4010 ifas>10thenas=0:as(1)=int(rnd(1)*20)+1:poke2042,255:t(1)=2:return
+ 4020 ifsa>10thensa=0:sa(1)=int(rnd(1)*20)+1:poke2044,255:t(2)=2:return
+ 4030 ifds>10thends=0:ds(1)=int(rnd(1)*20)+1:poke2046,255:t(3)=2:return
+ 4040 return
+ 4500 rem ***** turtles resurfacing *******
+ 4510 ifas>as(1)thenas=0:as(1)=0:poke2042,254:t(1)=3:return
+ 4520 ifsa>sa(1)thensa=0:sa(1)=0:poke2044,254:t(2)=3:return
+ 4530 ifds>ds(1)thends=0:ds(1)=0:poke2046,254:t(3)=3:return
+ 4540 return
+ 5000 rem ***** turtles surfaced **********
+ 5010 ifas>10thenas=0:poke2042,253:t(1)=0:return
+ 5020 ifsa>10thensa=0:poke2044,253:t(2)=0:return
+ 5030 ifds>10thends=0:poke2046,253:t(3)=0:return
+ 5040 return
+ 9000 rem ******** frog up *********
+ 9010 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,128,32,0,128,39,252,128,47,254,128
+ 9020 data62,239,128,15,254,0,15,254,0,15,254,0,15,254,0,15,254,0,7,252,0
+ 9030 data63,255,128,33,240,128,32,0,128,32,0,128,32,0,128
+ 9040 rem ****** frog up jump *****
+ 9050 data0,0,0,0,0,0,2,0,64,2,24,64,2,60,64,2,90,64,3,255,192,0,255,0,0,255,0
+ 9060 data0,255,0,0,255,0,1,255,128,1,126,128,1,189,128,0,129,0,0,195,0,0,10,0
+ 9070 data0,60,0,0,24,0,0,24,0,0,24,0
+ 9080 rem ******* frog down **********
+ 9090 data0,0,0,0,0,0,0,0,0,0,0,0,4,0,64,4,0,64,4,0,64,4,124,64,7,255,192,1,255,0
+ 9100 data1,255,0,1,255,0,1,255,0,1,255,0,1,255,0,1,255,0,7,255,192,5,255,64
+ 9110 data4,186,64,4,124,64,4,0,64
+ 9120 rem **** frog down jump *****
+ 9130 data0,24,0,0,24,0,0,126,0,1,197,0,3,1,128,6,0,192,4,124,64,7,255,192
+ 9140 data0,254,0,1,255,0,1,255,0,1,255,0,1,255,0,1,255,0,1,255,0,1,255,0
+ 9150 data7,255,192,5,187,64,4,254,64,4,124,64,4,0,64
+ 9160 rem ***** frog left *********
+ 9170 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,248,3,240,8,2,0,31,250,0
+ 9180 data63,254,0,111,255,0,127,255,128,127,255,128,111,255,0,63,254,0,31,250,0
+ 9190 data8,2,0,248,3,240,0,0,0,0,0,0
+ 9200 rem ***** frog left jump ****
+ 9210 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,252,1,224,4,1,48,15,255,24
+ 9220 data31,255,12,55,255,134,63,255,195,63,255,195,55,255,134,31,255,12
+ 9230 data15,255,24,4,1,48,25,1,224,0,0,0,0,0,0
+ 9240 rem ****** frog right *******
+ 9250 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,0,63,1,0,32,1,255,240,1,255,248
+ 9260 data3,255,236,3,255,252,3,255,252,3,255,236,1,255,248,1,255,240,1,0,32
+ 9270 data63,0,63,0,0,0,0,0,0,0,0,0
+ 9280 rem **** frog right jump ****
+ 9290 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,224,63,12,32,32,24,63,240
+ 9300 data48,127,243,96,255,236,192,255,252,192,255,252,96,255,236,48,127,248
+ 9310 data24,63,240,12,32,32,7,224,63,0,0,0,0,0,0,0,0,0
+ 9320 rem ***** car left **********
+ 9330 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,254,0,3,33,0,63,224,128,96,0,124
+ 9340 data192,0,4,188,3,196,231,254,124,24,1,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ 9350 data0,0,0,0,0
+ 9360 rem ******* car right *******
+ 9370 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,255,0,4,4,128,8,7,192,248,0,60
+ 9380 data128,0,2,128,0,1,143,0,61,249,255,231,6,0,24,0,0,0,0,0,0,0,0,0,0,0,0,0
+ 9390 data0,0,0,0,0
+ 9400 rem ******* truck right *****
+ 9410 data0,0,0,0,0,192,0,0,192,0,0,192,255,252,192,255,252,192,255,255,252
+ 9420 data255,252,198,255,252,195,255,252,253,255,252,193,255,252,193,255,252,255
+ 9430 data193,4,195,204,100,153,222,244,189,222,247,189,204,96,24,0,0,0,0,0,0,0,0
+ 9440 data0
+ 9450 rem ***** truck left ********
+ 9460 data0,0,0,1,128,0,1,128,0,1,128,0,9,128,0,17,191,255,63,255,255,105,191,255
+ 9470 data201,191,255,249,191,255,129,191,255,189,191,255,167,176,131,219,182,51
+ 9480 data189,175,123,189,239,123,24,6,48,0,0,0,0,0,0,0,0,0,0,0,0
+ 9490 rem ****** log **********
+ 9500 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,127,255,254
+ 9510 data135,0,25,128,60,7,184,0,225,127,255,254,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ 9520 data0,0,0,0,0
+ 9530 rem ********* turtles *******
+ 9540 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,56,193,32,32,130,63,224,250,63,224,252
+ 9550 data127,241,254,255,251,255,255,251,255,255,251,255,127,241,254,63,224,252
+ 9560 data63,224,250,32,32,130,56,56,193,0,0,0,0,0,0,0,0,0
+ 9570 rem ******* turtles submerging *****
+ 9580 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,136,68,33,68,40,66,128,40,1,63,147,252
+ 9590 data96,198,6,223,109,251,160,170,5,223,109,251,96,198,6,63,147,252
+ 9600 data128,40,1,72,40,34,132,68,65,0,0,0,0,0,0,0,0,0
+ 9610 rem ***** turtles submerged ******
+ 9620 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ 9630 data0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ 9640 rem end of program
+ 9700 rem *** input handling ***
+ 9710 ifcs=1then9750
+ 9720 jf=peek(56320):jv=15-(jfand15):return
+ 9750 getk$:jv=0
+ 9760 ifk$="w"thenjv=1
+ 9770 ifk$="s"thenjv=2
+ 9780 ifk$="a"thenjv=4
+ 9790 ifk$="d"thenjv=8
+ 9800 return
